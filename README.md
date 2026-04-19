@@ -1,3 +1,7 @@
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/arfaram/connector-gemini?style=flat-square&color=blue)](https://github.com/arfaram/connector-gemini/tags)
+[![Downloads](https://img.shields.io/packagist/dt/arfaram/connector-gemini.svg?style=flat-square&color=blue)](https://packagist.org/packages/arfaram/connector-gemini)
+[![License](https://img.shields.io/packagist/l/arfaram/connector-gemini.svg?style=flat-square&color=blue)](https://github.com/arfaram/connector-gemini/blob/master/LICENSE)
+
 # connector-gemini
 
 Google Gemini AI connector for [Ibexa DXP](https://ibexa.co).
