@@ -1,0 +1,28 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ConnectorGemini\ActionHandler\TextToTextActionHandler:
+        arguments:
+            $apiKey: '%env(GEMINI_API_KEY)%'
+        calls:
+            - setDefaultModel: [ '%ibexa.connector_gemini.text_to_text.default_model%' ]
+            - setDefaultMaxTokens: [ '%ibexa.connector_gemini.text_to_text.default_max_tokens%' ]
+            - setDefaultTemperature: [ '%ibexa.connector_gemini.text_to_text.default_temperature%' ]
+        tags:
+            - { name: ibexa.ai.action.handler, priority: 100 }
+            - { name: ibexa.ai.action.handler.text_to_text, priority: 100 }
+
+    ConnectorGemini\ActionHandler\ImageToTextActionHandler:
+        arguments:
+            $apiKey: '%env(GEMINI_API_KEY)%'
+        calls:
+            - setDefaultModel: [ '%ibexa.connector_gemini.image_to_text.default_model%' ]
+            - setDefaultMaxTokens: [ '%ibexa.connector_gemini.image_to_text.default_max_tokens%' ]
+            - setDefaultTemperature: [ '%ibexa.connector_gemini.image_to_text.default_temperature%' ]
+        tags:
+            - { name: ibexa.ai.action.handler, priority: 100 }
+            - { name: ibexa.ai.action.handler.image_to_text, priority: 100 }
+

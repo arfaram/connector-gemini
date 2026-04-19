@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ConnectorGeminiBundle\Form\Type\:
+        resource: '../../Form/Type'
+        tags:
+            - { name: form.type }
+
+    ConnectorGeminiBundle\Form\Type\TextToTextOptionsType:
+        arguments:
+            $models: '%ibexa.connector_gemini.text_to_text.models%'
+            $defaultModel: '%ibexa.connector_gemini.text_to_text.default_model%'
+            $defaultTemperature: '%ibexa.connector_gemini.text_to_text.default_temperature%'
+            $defaultMaxTokens: '%ibexa.connector_gemini.text_to_text.default_max_tokens%'
+        tags:
+            - { name: form.type }
+
+    ibexa.connector_ai.action_configuration.handler.gemini_text_to_text.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper
+        arguments:
+            $formType: 'ConnectorGeminiBundle\Form\Type\TextToTextOptionsType'
+        tags:
+            -   name: ibexa.connector_ai.action_configuration.form_mapper.options
+                type: gemini-text-to-text
+
+    ConnectorGeminiBundle\Form\Type\ImageToTextOptionsType:
+        arguments:
+            $models: '%ibexa.connector_gemini.image_to_text.models%'
+            $defaultModel: '%ibexa.connector_gemini.image_to_text.default_model%'
+            $defaultTemperature: '%ibexa.connector_gemini.image_to_text.default_temperature%'
+            $defaultMaxTokens: '%ibexa.connector_gemini.image_to_text.default_max_tokens%'
+        tags:
+            - { name: form.type }
+
+    ibexa.connector_ai.action_configuration.handler.gemini_image_to_text.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper
+        arguments:
+            $formType: 'ConnectorGeminiBundle\Form\Type\ImageToTextOptionsType'
+        tags:
+            -   name: ibexa.connector_ai.action_configuration.form_mapper.options
+                type: gemini-image-to-text
+
